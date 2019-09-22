@@ -1,0 +1,12 @@
+{
+ "mainSource": "",
+ "testSource": "",
+ "libraries": "",
+ "cases": [
+  {
+   "path": "TestFunctions.java",
+   "className": "TestFunctions"
+  }
+ ],
+ "wd": ""
+}
