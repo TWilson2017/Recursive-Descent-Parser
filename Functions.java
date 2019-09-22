@@ -85,7 +85,7 @@ public class Functions{
    * Checks for correct parameters
    * 
    * Example:
-   * (a:real,b:integer,c:string)
+   * ( a : real , b : integer , c : string )
    */
 	public boolean checkParameters(){
 		String head = storeToken.peek();
@@ -116,7 +116,7 @@ public class Functions{
    * Checks for correct remaining variables and right parentheses
    * 
    * Example:
-   * a:real,b:integer,c:string)
+   * a : real , b : integer , c : string )
    */
 	private boolean checkRemainingParameters(){
 		int size = storeToken.size();
@@ -167,7 +167,7 @@ public class Functions{
    * Checks for correct function signature
    * 
    * Example:
-   * [a is 4; b is 6; d is 7;]
+   * [ a is 4 ; b is 6 ; d is 7 ; ]
    */
 	public boolean checkFunctionSignature(){
 		String head = storeToken.peek();
@@ -198,7 +198,7 @@ public class Functions{
    * Checks for correct remaining function signature and right bracket
    * 
    * Example:
-   * a is 4; b is 6; d is 7;]
+   * a is 4 ; b is 6 ; d is 7 ; ]
    */
 	private boolean checkRemainingSignature(){
 		int size = storeToken.size();
