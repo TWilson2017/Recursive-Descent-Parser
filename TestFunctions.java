@@ -38,7 +38,7 @@ public class TestFunctions{
 		assertFalse(function.checkKeyword());
 	}
 	
-	@Test
+   @Test
    /**
    * Checks for missing parentheses
    * 
@@ -104,9 +104,7 @@ public class TestFunctions{
 		assertTrue(function.checkParameters());
 	   
 		Queue<String> storeToken3 = new LinkedList<>
-			(Arrays.asList(new String[]{"(","a",":","real",",",
-										"b",":","integer",",","c",":",
-										"string",")"}));
+			(Arrays.asList(new String[]{"(","a",":","real",",","b",":","integer",",","c",":","string",")"}));
 		function = addAndRemoveFromQueue(storeToken3);
 		assertTrue(function.checkParameters());
 	}
