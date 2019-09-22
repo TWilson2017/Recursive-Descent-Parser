@@ -31,9 +31,9 @@ public class Functions{
    * Checks for correct function definition
    * 
    * Example:
-   * a is 4 ; b is 6 ; d is 7 ; ]
+   * function func1 ( a : real ) [ a is 5 ; ] .
    */
-	public void validateFunctionDefinition(){
+    public void validateFunctionDefinition(){
 		if(checkKeyword() == false){
 			System.out.println("Expected : function");
 		}
@@ -71,7 +71,7 @@ public class Functions{
 		}
 		return false;
 	}
-	
+
    /**
    * Checks for function name --> "func1" or "func2" or "func3".
    */
