@@ -57,27 +57,27 @@ public class TestFunctions{
 
 		Queue<String> storeToken2 = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","real"}));
-		function = addAndRemoveFromQueue(storeToken2);
+		function = createObject(storeToken2);
 		assertFalse(function.checkParameters());
 		
 		Queue<String> storeToken3 = new LinkedList<>
 			(Arrays.asList(new String[]{"a",":","real",")"}));
-		function = addAndRemoveFromQueue(storeToken3);
+		function = createObject(storeToken3);
 		assertFalse(function.checkParameters());
 		
 		Queue<String> storeToken4 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a",":","real","]"}));
-		function = addAndRemoveFromQueue(storeToken4);
+		function = createObject(storeToken4);
 		assertFalse(function.checkParameters());
 		
 		Queue<String> storeToken5 = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","real","]"}));
-		function = addAndRemoveFromQueue(storeToken5);
+		function = createObject(storeToken5);
 		assertFalse(function.checkParameters());
 		
 		Queue<String> storeToken6 = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","real","["}));
-		function = addAndRemoveFromQueue(storeToken6);
+		function = createObject(storeToken6);
 		assertFalse(function.checkParameters());
 	}
 	
@@ -95,17 +95,17 @@ public class TestFunctions{
 		
 		Queue<String> storeToken = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","integer",")"}));
-		function = addAndRemoveFromQueue(storeToken);
+		function = createObject(storeToken);
 		assertTrue(function.checkParameters());
 	   
 		Queue<String> storeToken2 = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","real",",","b",":","real",")"}));
-		function = addAndRemoveFromQueue(storeToken2);
+		function = createObject(storeToken2);
 		assertTrue(function.checkParameters());
 	   
 		Queue<String> storeToken3 = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","real",",","b",":","integer",",","c",":","string",")"}));
-		function = addAndRemoveFromQueue(storeToken3);
+		function = createObject(storeToken3);
 		assertTrue(function.checkParameters());
 	}
 	
@@ -124,27 +124,27 @@ public class TestFunctions{
 		
 		Queue<String> storeToken = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","int",")"}));
-		function = addAndRemoveFromQueue(storeToken);
+		function = createObject(storeToken);
 		assertFalse(function.checkParameters());
 	   
 		Queue<String> storeToken2 = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","real","b",")"}));
-		function = addAndRemoveFromQueue(storeToken2);
+		function = createObject(storeToken2);
 		assertFalse(function.checkParameters());
 	   
 		Queue<String> storeToken3 = new LinkedList<>
 			(Arrays.asList(new String[]{"(a:real", "b:integer)"}));
-		function = addAndRemoveFromQueue(storeToken3);
+		function = createObject(storeToken3);
 		assertFalse(function.checkParameters());
 	   
 		Queue<String> storeToken4 = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","realb",")"}));
-		function = addAndRemoveFromQueue(storeToken4);
+		function = createObject(storeToken4);
 		assertFalse(function.checkParameters());
 	   
 		Queue<String> storeToken5 = new LinkedList<>
 			(Arrays.asList(new String[]{"(","a",":","real","t",":","string",")"}));
-		function = addAndRemoveFromQueue(storeToken5);
+		function = createObject(storeToken5);
 		assertFalse(function.checkParameters());
 	}
 	
@@ -161,12 +161,12 @@ public class TestFunctions{
 		
 		Queue<String> storeToken = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","5",";","]"}));
-		function = addAndRemoveFromQueue(storeToken);
+		function = createObject(storeToken);
 		assertTrue(function.checkFunctionBody());
 	   
 		Queue<String> storeToken2 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","5",";","b","is","7",";","]"}));
-		function = addAndRemoveFromQueue(storeToken2);
+		function = createObject(storeToken2);
 		assertTrue(function.checkFunctionBody());
 	}
 	
@@ -187,31 +187,31 @@ public class TestFunctions{
 		
 		Queue<String> storeToken = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","15",";","]"}));
-		function = addAndRemoveFromQueue(storeToken);
+		function = createObject(storeToken);
 		assertFalse(function.checkFunctionBody());
 	   
 		Queue<String> storeToken2 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","k",";","]"}));
-		function = addAndRemoveFromQueue(storeToken2);
+		function = createObject(storeToken2);
 		assertFalse(function.checkFunctionBody());
 	   
 		Queue<String> storeToken3 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","5","b","is","7",";","]"}));
-		function = addAndRemoveFromQueue(storeToken3);
+		function = createObject(storeToken3);
 		assertFalse(function.checkFunctionBody());
 	   
 		Queue<String> storeToken4 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","7",";",")"}));
-		function = addAndRemoveFromQueue(storeToken4);
+		function = createObject(storeToken4);
 		assertFalse(function.checkFunctionBody());
 	   
 		Queue<String> storeToken5 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","7",";","]"}));
-		function = addAndRemoveFromQueue(storeToken5);
+		function = createObject(storeToken5);
 		assertFalse(function.checkFunctionBody());
 	}
 	
-	private Functions addAndRemoveFromQueue(Queue<String> storeToken){
+	private Functions createObject(Queue<String> storeToken){
 		Functions function = new Functions(storeToken);
 		return function;
 	}
