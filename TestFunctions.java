@@ -152,29 +152,29 @@ public class TestFunctions{
 	
    @Test
    /**
-   * Checks for correct function signature
+   * Checks for correct function body
    * 
    * Testcases:
    * [a is 5 ;]
    * [a is 5 ; b is 7 ;]
    */
-   public void testCorrectFunctionSignature(){
+   public void testCorrectFunctionBody(){
 		Functions function = new Functions();
 		
 		Queue<String> storeToken = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","5",";","]"}));
 		function = addAndRemoveFromQueue(storeToken);
-		assertTrue(function.checkFunctionSignature());
+		assertTrue(function.checkFunctionBody());
 	   
 		Queue<String> storeToken2 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","5",";","b","is","7",";","]"}));
 		function = addAndRemoveFromQueue(storeToken2);
-		assertTrue(function.checkFunctionSignature());
+		assertTrue(function.checkFunctionBody());
 	}
 	
    @Test
    /**
-   * Checks for incorrect function signature
+   * Checks for incorrect function body
    * 
    * Testcases:
    * [a is 15 ;]
@@ -184,33 +184,33 @@ public class TestFunctions{
    * [a 7 ;]
    * 
    */
-   public void testIncorrectFunctionSignature(){
+   public void testIncorrectFunctionBody(){
 		Functions function = new Functions();
 		
 		Queue<String> storeToken = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","15",";","]"}));
 		function = addAndRemoveFromQueue(storeToken);
-		assertFalse(function.checkFunctionSignature());
+		assertFalse(function.checkFunctionBody());
 	   
 		Queue<String> storeToken2 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","k",";","]"}));
 		function = addAndRemoveFromQueue(storeToken2);
-		assertFalse(function.checkFunctionSignature());
+		assertFalse(function.checkFunctionBody());
 	   
 		Queue<String> storeToken3 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","5","b","is","7",";","]"}));
 		function = addAndRemoveFromQueue(storeToken3);
-		assertFalse(function.checkFunctionSignature());
+		assertFalse(function.checkFunctionBody());
 	   
 		Queue<String> storeToken4 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","is","7",";",")"}));
 		function = addAndRemoveFromQueue(storeToken4);
-		assertFalse(function.checkFunctionSignature());
+		assertFalse(function.checkFunctionBody());
 	   
 		Queue<String> storeToken5 = new LinkedList<>
 			(Arrays.asList(new String[]{"[","a","7",";","]"}));
 		function = addAndRemoveFromQueue(storeToken5);
-		assertFalse(function.checkFunctionSignature());
+		assertFalse(function.checkFunctionBody());
 	}
 	
 	private Functions addAndRemoveFromQueue(Queue<String> storeToken){

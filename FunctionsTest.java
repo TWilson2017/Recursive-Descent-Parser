@@ -17,6 +17,6 @@ public class FunctionsTest{
 			}
 		}
 		Functions function = new Functions(storeToken);
-		function.validateFunctionSignatures();
+		function.validateFunctionDefinition();
 	}
 }

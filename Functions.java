@@ -5,13 +5,13 @@ import java.util.Queue;
 
 /* Recursive Descent Parser for the following grammar
  * 
- * validateFunctionSignatures -> checkKeyword checkFunctionName checkParameters checkFunctionSignature
+ * validateFunctionDefinition -> checkKeyword checkFunctionName checkParameters checkFunctionBody
  * checkKeyword -> isEmpty | keyword == "function"
  * checkFunctionName -> isEmpty | functionName == "func1" | "func2" | "func3"
  * checkParameters -> isEmpty | checks for left parentheses |checkRemainingParameters 
  * checkRemainingParameters -> Correct example: a : integer )
- * checkFunctionSignature -> isEmpty | checks for left bracket | checkRemainingSignature
- * checkRemainingSignature -> Correct example: a is 5 ; ]
+ * checkFunctionBody -> isEmpty | checks for left bracket | checkRemainingBody
+ * checkRemainingBody -> Correct example: a is 5 ; ]
  * isEmpty -> storeToken.size() == 0
  * 
  */
@@ -27,7 +27,13 @@ public class Functions{
 		this.storeToken = storeToken;
 	}
 	
-	public void validateFunctionSignatures(){
+   /**
+   * Checks for correct function definition
+   * 
+   * Example:
+   * a is 4 ; b is 6 ; d is 7 ; ]
+   */
+	public void validateFunctionDefinition(){
 		if(checkKeyword() == false){
 			System.out.println("Expected : function");
 		}
@@ -37,7 +43,7 @@ public class Functions{
 			}
 			else{
 				if(checkParameters()){
-					if(checkFunctionSignature()){
+					if(checkFunctionBody()){
 						System.out.println("Success");
 					}
 				}
@@ -163,12 +169,12 @@ public class Functions{
 	}
 	
    /**
-   * Checks for correct function signature
+   * Checks for correct function body
    * 
    * Example:
    * [ a is 4 ; b is 6 ; d is 7 ; ]
    */
-	public boolean checkFunctionSignature(){
+	public boolean checkFunctionBody(){
 		String head = storeToken.peek();
 				
 		if(isEmpty() || !head.equals("[")){
@@ -184,7 +190,7 @@ public class Functions{
 			return false;
 		}
 		if(!head.equals("]")){
-			return checkRemainingSignature();
+			return checkRemainingBody();
 		}
 		else{
 			storeToken.remove();
@@ -194,12 +200,12 @@ public class Functions{
 	}
 	
    /**
-   * Checks for correct remaining function signature and right bracket
+   * Checks for correct remaining function body and right bracket
    * 
    * Example:
    * a is 4 ; b is 6 ; d is 7 ; ]
    */
-	private boolean checkRemainingSignature(){
+	private boolean checkRemainingBody(){
 		int size = storeToken.size();
 		for(int i = 0; i < size; i++){
 			String head = storeToken.peek();
