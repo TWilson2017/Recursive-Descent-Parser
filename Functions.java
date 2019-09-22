@@ -20,7 +20,6 @@ public class Functions{
 	private int counter = 0;
 	private boolean isRightParentheses = false;
 	private boolean isRightBracket = false;
-	private final int parameterCount = 4;
 	
 	Functions() {}
 	
